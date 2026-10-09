@@ -111,6 +111,32 @@
         .url-container .btn.copy:hover {
             background-color: #e0e0e0;
         }
+        .emoji-fall-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .falling-emoji {
+            position: absolute;
+            top: -50px;
+            font-size: 2rem;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
         
     </style>
 </head>
@@ -140,6 +166,7 @@
         
     </div>
 
+    <div class="emoji-fall-container" id="emojiContainer"></div>
 
     <script>
         function copyUrl() {
@@ -155,6 +182,35 @@
                 console.error("Failed to copy text: ", err);
             });
         }
+
+        const container = document.getElementById('emojiContainer');
+        const emojis = ['🍠']; 
+
+        function createEmoji() {
+            const emojiEl = document.createElement('div');
+            emojiEl.classList.add('falling-emoji');
+
+            emojiEl.innerText = emojis[0]; 
+            
+            const startLeft = Math.random() * 100;
+            const duration = Math.random() * 4 + 4; // Falls between 4 and 8 seconds
+            const size = Math.random() * 1.5 + 1;   // Sizes between 1rem and 2.5rem
+            const opacity = Math.random() * 0.4 + 0.3; // Muted background opacity (0.3 to 0.7)
+
+            emojiEl.style.left = startLeft + 'vw';
+            emojiEl.style.animationDuration = duration + 's';
+            emojiEl.style.fontSize = size + 'rem';
+            emojiEl.style.opacity = opacity;
+
+            container.appendChild(emojiEl);
+
+            setTimeout(() => {
+                emojiEl.remove();
+            }, duration * 1000);
+        }
+
+        setInterval(createEmoji, 300);
+
     </script>
 
 </body>
