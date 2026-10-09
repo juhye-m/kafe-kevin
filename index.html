@@ -68,6 +68,50 @@
             background-color: #fafafa;
             color: #111111;
         }
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            margin-top: 12px;
+            border: 1px solid #cccccc;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+        .url-container {
+            margin-top: 12px;
+            margin-bottom: 12px; 
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            gap: 8px;
+            align-items: stretch; 
+        }
+
+        .url-container .url-input {
+            flex: 1;
+            width: 100%;
+            margin-top: 0;
+            padding: 10px; 
+            box-sizing: border-box;
+        }
+
+        .url-container .btn.copy {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0;      
+            margin-bottom: 0;   
+            white-space: nowrap;
+            box-sizing: border-box;
+            padding: 0 16px;
+            height: 42px;    
+            background-color: #f0f0f0;
+            color: #333333;
+        }
+        .url-container .btn.copy:hover {
+            background-color: #e0e0e0;
+        }
+        
     </style>
 </head>
 <body>
@@ -89,6 +133,11 @@
         <a href="https://open.spotify.com/playlist/2GFHBKg9t7hxdzj1zex8Ww?si=fb1809c153044825&pt=a25221a2f191bd15aef432be9b184bea" target="_blank" class="btn">Listen on Spotify</a>
         <a href="https://tunemymusic.com" target="_blank" class="btn btn-secondary">Sync to Apple Music</a>
         <a href="kafe-kevin-artwork.jpg" target="_blank" class="btn btn-secondary">Download Cover Art</a>
+        <div class="url-container">
+            <input class="url-input" type="text" value="https://open.spotify.com/playlist/2GFHBKg9t7hxdzj1zex8Ww?si=fb1809c153044825&pt=a25221a2f191bd15aef432be9b184bea" id="playlistUrl" readonly>
+            <button class="btn btn-secondary copy" onclick="copyUrl()">Copy</button>
+        </div>
+        
     </div>
 
 </body>
