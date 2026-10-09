@@ -193,7 +193,7 @@
             emojiEl.innerText = emojis[0]; 
             
             const startLeft = Math.random() * 100;
-            const duration = Math.random() * 4 + 4; // Falls between 4 and 8 seconds
+            const duration = Math.random() * 3 + 3; // Falls between 4 and 8 seconds
             const size = Math.random() * 1.5 + 1;   // Sizes between 1rem and 2.5rem
             const opacity = Math.random() * 0.4 + 0.3; // Muted background opacity (0.3 to 0.7)
 
@@ -209,7 +209,7 @@
             }, duration * 1000);
         }
 
-        setInterval(createEmoji, 300);
+        setInterval(createEmoji, 200);
 
     </script>
 
