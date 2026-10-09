@@ -140,5 +140,22 @@
         
     </div>
 
+
+    <script>
+        function copyUrl() {
+            const copyText = document.getElementById("playlistUrl");
+            navigator.clipboard.writeText(copyText.value).then(() => {
+                const button = document.querySelector(".url-container .copy");
+                const originalText = button.textContent;
+                button.textContent = "Copied!";
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error("Failed to copy text: ", err);
+            });
+        }
+    </script>
+
 </body>
 </html>
